@@ -4,8 +4,8 @@ const request = require('supertest');
 const app = require('../src/index');
 
 const testUser = {
-  name: 'Henry Test 3',
-  email: 'henrytest3@example.com',
+  name: 'Henry Test 4',
+  email: 'henrytest4@example.com',
   password: '12345678'
 };
 
