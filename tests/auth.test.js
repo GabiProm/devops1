@@ -2,10 +2,11 @@ jest.setTimeout(10000);
 
 const request = require('supertest');
 const app = require('../src/index');
+const mongoose = require('mongoose');
 
 const testUser = {
-  name: 'Henry Test 4',
-  email: 'henrytest4@example.com',
+  name: `Henry Test ${Date.now()}`,
+  email: `henry${Date.now()}@example.com`,
   password: '12345678'
 };
 
@@ -46,4 +47,8 @@ describe.only('Auth API', () => {
     expect(res.body).toHaveProperty('usuario');
     expect(res.body.usuario.email).toBe(testUser.email);
   });
+});
+
+afterAll(async () => {
+  await mongoose.connection.close();
 });
